@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body onload="severityReport()">
+    <div class="head">
+        <img src="homeLogo.png" id="image1" title="Go to Home" onclick="goToHomePage()" alt="error in uploading">
+        <img src="bugLogo.png" id="image2" alt="error in uploading">
+        <header>BUG STATISTICS</header>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="chartMenu" type="button" data-toggle="dropdown">Chart
+            Type: Pie <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#" id="pieChart">Pie</a></li>
+            <li><a href="#" id="columnChart">Column</a></li>
+            <li><a href="#" id="barChart">Bar</a></li>
+        </ul>
+    </div>
+    <div class="maindiv">
+        <div id="left">
+            <h3 class="heading">Basic Reports</h3>
+            <li id="severity" onclick="severityReport()">
+                <a href="#">Severity</a>
+            </li>
+            <li id="status" onclick="statusReport()">
+                <a href="#">Status</a>
+            </li>
+            <li id="assignee" onclick="assigneeReport()">
+                <a href="#">Assignee</a>
+            </li>
+            <div id="individual">
+
+            </div>
+        </div>
+        <div id="vertical">
+
+        </div>
+        <div id="right">
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- below javascripts are added so that we can make make pie chart,column and bar charts easily by simply given the data to it -->
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-base.min.js"></script>
+
+    <!-- this is my own javascript -->
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

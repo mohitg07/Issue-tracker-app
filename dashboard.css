@@ -1,0 +1,122 @@
+
+.head{
+    display: flex;
+    justify-content: center;
+}
+
+#image1{
+    height: 3.125rem;
+    width: 3.125rem;
+    position: absolute;
+    left: 25px;
+    top: 12px;
+}
+
+#image1:hover{
+     cursor: pointer;
+}
+
+#image2{
+  height: 3.125rem;
+  width: 3.125rem;
+  margin: 18px 15px 5px 15px;
+}
+
+header{
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3.5rem;
+  padding: 8px 5px 5px 5px;
+}
+
+.dropdown{
+    float: right;
+    margin-right: 10px;
+}
+
+.dropdown-menu{
+    min-width: 0px !important;
+}
+
+#chartMenu{
+    padding: 3px 7px;
+    font-size: 15px;
+    background-color: white;
+    border: 2px solid blue;
+    color: blue;
+    border-radius: 50px;
+}
+
+.maindiv{
+    display: flex;
+    margin: 5px 5px;
+}
+
+.heading{
+    font-weight: bold;
+    font-style: italic;
+}
+
+#left{
+    /* border: 2px solid black; */
+    width: 200px;
+}
+
+#left li a{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+#severity,#status,#assignee{
+    margin: 5px;
+    padding: 3px 0px;
+    list-style: none;
+}
+
+#left li:hover{
+    background-color:  #ebeaea;
+    cursor: pointer;
+}
+
+#individual{
+    display: none;
+    padding: 0px 5px;
+    margin-left: 25px;
+}
+
+#vertical{
+    border: 1px solid grey;
+    height: 500px;
+}
+
+#right{
+    /* border: 2px solid black; */
+    height: 470px;
+    width: 700px;
+    margin: 0px auto;
+}
+
+#heading{
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#leftPieChart{
+    /* border: 2px solid black; */
+    width: 600px;
+    height: 350px;
+    margin-top: 10px;
+    padding-right: 20px;
+}
+
+#rightPieChart{
+    /* border: 2px solid black; */
+    width: 600px;
+    height: 350px;
+    margin-top: 10px;
+    padding-left: 20px;
+}

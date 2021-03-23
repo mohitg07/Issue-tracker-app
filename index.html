@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue Tracker</title>
+  <link rel="stylesheet" href="style2.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fredoka+One&family=Righteous&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Secular+One&display=swap" rel="stylesheet">
+
+  <!-- This is CSS of bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+
+<!-- onload attribute automatically calls the function when page gets loaded -->
+
+<body onload="fetchIssues();displayText();">
+
+  <div class="bg">
+    <div class="head">
+      <img src="bugLogo.png" alt="error in uploading">
+      <header>BUG TRACKER</header>
+    </div>
+
+    <!-- onkeyup() event occurs when the user releases a key -->
+
+    <div class="inner-addon">
+      <!-- <i> tag - The content inside is typically displayed in italic. -->
+      <i class="glyphicon glyphicon-search" id="search"></i>
+      <input type="text" class="form-control" id="inputSearchTitle" onkeyup="myFunc()" onclick="fetchIssues()"
+        placeholder="Search Bug by title...." />
+    </div>
+
+    <!-- here dropdown is made with the help of bootstrap -->
+    <!-- here caret class creates a triangle like arrow in dropdown -->
+    <div id="filtering">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="filterMenu" type="button" data-toggle="dropdown">Filter
+          by: Newest
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#" id="newToOld">Newest</a></li>
+          <li><a href="#" id="oldToNew">Oldest</a></li>
+          <li>
+            <button class="btn btn-secondary dropdown-toggle" id="arrowRight" type="button"
+              data-toggle="dropdown">Assignee
+              <span class="caret caret-right"></span></button>
+          </li>
+          <li>
+            <button class="btn btn-secondary dropdown-toggle" id="arrowRight2" type="button"
+              data-toggle="dropdown">Severity
+              <span class="caret caret-right"></span></button>
+          </li>
+          <li>
+            <button class="btn btn-secondary dropdown-toggle" id="arrowRight3" type="button"
+              data-toggle="dropdown">Status
+              <span class="caret caret-right"></span></button>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="dropdownAssignee" type="button"
+          data-toggle="dropdown">Assignee
+          <span class="caret"></span></button>
+
+        <!-- with the help of force-scroll class, I have made scroll bar -->
+        <ul class="dropdown-menu mostly-customized-scrollbar" id="dropdownRight">
+
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="dropdownSeverity" type="button"
+          data-toggle="dropdown">Severity
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu" id="dropdownRight2">
+          <li><a href="#" onclick="searchAccToSeverity('Low');">Low</a></li>
+          <li><a href="#" onclick="searchAccToSeverity('Medium');">Medium</a></li>
+          <li><a href="#" onclick="searchAccToSeverity('High');">High</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" id="dropdownStatus" type="button"
+          data-toggle="dropdown">Status
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu" id="dropdownRight3">
+          <li><a href="#" onclick="searchAccToStatus('Open');">Open</a></li>
+          <li><a href="#" onclick="searchAccToStatus('In Progress');">In Progress</a></li>
+          <li><a href="#" onclick="searchAccToStatus('Closed');">Closed</a></li>
+        </ul>
+      </div>
+
+      <!-- By clicking on view dashboard, we will redirect to dashboard.html page -->
+      <a href="dashboard.html" id="dashboard">View Dashboard</a>
+    </div>
+
+    <!-- using innerHTML in js to write HTML code of main div -->
+    <div id="mainDiv">
+      <div id="container">
+
+        <div id="leftIssueList">
+
+        </div>
+        <div id="rightIssueList">
+
+        </div>
+        <div id="vertical"></div>
+      </div>
+      <div id="notFound">
+        <p id="resultNotFound">
+
+        </p>
+      </div>
+      <div id="enlargeDiv">
+
+      </div>
+    </div>
+    <div id="showMoreLess">
+
+    </div>
+    <div class="createNewBug">
+      <h1>ADD NEW ISSUE</h1>
+
+      <form id="issueInputForm">
+        <div class="form-group">
+          <label for="issueTitleInput">Title</label>
+          <input type="text" class="form-control myCss" id="issueTitleInput" placeholder="Issue Title ...">
+        </div>
+        <div class="form-group">
+          <label for="issueSeverityInput">Severity</label>
+          <select id="issueSeverityInput" class="form-control myCss">
+            <option value="" hidden>Select your option</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="issueAssignedToInput">Assigned To</label>
+          <input type="text" class="form-control myCss" id="issueAssignedToInput" placeholder="Enter employee name ...">
+        </div>
+        <div class="form-group">
+          <label for="issueDescriptionInput">Description</label>
+          <textarea class="form-control myCss" id="issueDescriptionInput" rows="4"
+            placeholder="Issue Description"></textarea>
+        </div>
+        <button type="submit" class="leftButton">Add</button>
+        <button type="button" id="rightBut" class="rightButton">Clear Issue</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- I have to include this js so that I can generate new issue id every time -->
+  <script src="https://chancejs.com/chance.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified JavaScript of bootstrap-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <!-- this is my own jss -->
+  <script src="main2.js"></script>
+</body>
+
+</html>

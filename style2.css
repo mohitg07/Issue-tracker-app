@@ -1,0 +1,477 @@
+/* this is the main div having class bg and make this position as relative so that I can apply background image using before pseudo code */
+.bg{
+    position: relative;
+}
+
+.bg::before{
+    content: "";
+    background-image: url("bg.jpg");
+    position: absolute;
+    background-repeat: repeat;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity:0.3;
+}
+
+/* this is the media query which I will fire when width is upto 1270px */
+@media (max-width:1270px){
+    .bg{
+        width: 1270px;
+        height: 100%;
+    }
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.head img{
+    height: 3.125em;
+    width: 3.125em;
+    margin: 22px 15px 5px 15px;
+}
+
+header{
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 3.5em;
+    padding: 8px 5px 5px 5px;
+}
+
+.inner-addon {
+    position: relative;
+    height: 3.125em;
+    width: 37.5em;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    right: 5px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+.inner-addon .glyphicon:hover{
+    font-size: 20px;
+    padding: 9px;
+}
+
+.inner-addon input {
+    padding-right: 30px;
+    font-size: 20px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.inner-addon input:hover{
+    border: 2px solid black;
+}
+
+
+#mainDiv{
+    display: flex;
+}
+
+#filtering{
+    /* border: 2px solid black; */
+    height: 50px;
+    margin: 5px 15px;
+    display: flex;
+}
+
+#filterMenu{
+    background-color: #c7c7c7e8;
+    padding: 5px 7px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 15px 15px;
+    border: none;
+}
+
+#newToOld{
+     background-color: #ebeaea;
+     margin-bottom: 3px;
+}
+
+#oldToNew{
+    background-color: #ebeaea;
+    margin-bottom: 2px;
+}
+
+#dropdownAssignee,#dropdownSeverity,#dropdownStatus{
+    border: 1px solid rgb(104, 102, 102);
+    background-color: white;
+    padding: 5px 15px;
+    font-size: 15px;
+    margin: 15px 15px;
+    border-radius: 100px;
+    display: none;
+}
+
+#dropdownAssignee:hover,#dropdownSeverity:hover,#dropdownStatus:hover{
+    background-color: #dddddde8;
+}
+
+/* this is the height and width of the assignee box */
+.mostly-customized-scrollbar{
+  width: 9em;
+  overflow-y: scroll;
+  height: 8em;
+}
+
+/* here I have set width of my scrollbar */
+.mostly-customized-scrollbar::-webkit-scrollbar {
+  width: 15px;
+  background-color: #aaa;
+}
+
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+#arrowRight{
+    margin: 2px 0px;
+}
+
+#arrowRight2{
+    margin: 2px 0px;
+    width: 95px;
+}
+
+#arrowRight3{
+    margin-top: 2px;
+    width: 95px;
+}
+
+/* this is written so that width of dropdown menu will adjust automatically as paer the text written inside it */
+.dropdown-menu{
+    min-width: 0px !important;
+}
+
+.caret{
+    color: blue;
+}
+
+.caret.caret-right{
+    transform: rotateZ(-90deg);
+}
+
+#dashboard{
+    position: absolute;
+    right: 50px;
+    border: 1px solid black;
+    padding: 2px 5px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #7deb7d;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#dashboard:hover{
+    background-color: #c7c7c7e8;
+    color: green;
+}
+
+#container{
+    display: flex;
+    /* border: 2px solid black; */
+    width: 750px;
+    margin: 20px 0px;
+}
+
+#notFound #resultNotFound{
+    text-align: center;
+    font-size: 35px;
+    margin: auto;
+}
+
+#notFound{
+    width: 750px;
+    margin: 20px 0px;
+    display: none;
+}
+
+#leftIssueList,#rightIssueList{
+    width: 400px;
+}
+
+.list{
+    width: 300px;
+    height: 170px;
+    margin: 20px auto;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(170, 214, 231);
+    cursor: default;
+}
+
+.list:hover{
+    border: 2px solid rgb(75, 75, 165);
+    cursor: pointer;
+}
+
+.list h4{
+    text-align: center;
+    font-weight: bold;
+}
+
+.list button{
+    font-size: 85%;
+    color: white;
+    background-color: red;
+    padding: 3px 9px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    pointer-events: none;
+}
+
+.list h3{
+    margin: 15px 5px 10px 5px;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.glyphicon.glyphicon-user{
+    font-size: 15px;
+    color: blue;
+}
+
+.glyphicon.glyphicon-time{
+    font-size: 15px;
+    color: blue;
+}
+
+.list p{
+    font-size: 20px;
+    margin: 5px;
+}
+
+
+#rightGlyficon{
+    float: right;
+}
+
+#vertical {
+    border-left: 5px solid black;
+}
+
+#enlargeDiv{
+    /* border: 2px solid black; */
+    background-color: #eeeeee;
+    margin: 20px auto 0px auto;
+    padding: 3px 10px;
+    width: 420px;
+    height: 420px;
+}
+
+#enlargeDiv h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    /* border: 2px solid black; */
+    height: 80px;
+}
+
+#enlargeDiv .firstLine{
+    display: flex;
+}
+#enlargeDiv h4{
+    font-family: 'Secular One', sans-serif;
+}
+
+#enlargeDiv p{
+    font-size: 18px;
+    margin: 0px;
+}
+
+#enlargeDiv #enlargeDivStatus{
+    font-size: 15px;
+    font-style: italic;
+    margin: 5px;
+    margin-left: 50px;
+    color: white;
+    background-color: red;
+    padding: 3px 5px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+#enlargeDiv .severity{
+    font-style: italic;
+    margin: 5px;
+    font-family: 'Secular One', sans-serif;
+}
+
+#enlargeDiv .assignedTo{
+    font-style: italic;
+    margin: 5px;
+    font-family: 'Secular One', sans-serif;
+}
+
+#enlargeDiv .assignedTime{
+    font-style: italic;
+    margin: 5px;
+    font-family: 'Secular One', sans-serif;
+}
+
+#enlargeDiv .para{
+    margin: 7px 5px 3px 5px;
+}
+
+.para img{
+    height: 17px;
+    width: 25px;
+    margin: 2px 5px;
+    cursor: pointer;
+}
+
+.para #saveIcon{
+    text-decoration: none;
+    float: right;
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: white;
+    padding: 1px 5px;
+    font-size: 13px;
+    margin: 4px;
+    display: none;
+}
+
+#saveIcon:hover{
+    background-color: black;
+    color: white;
+}
+
+#enlargeDiv #description{
+    border: 3px solid rgb(129, 126, 126);
+    padding: 4px;
+    height: 120px;
+    border-radius: 10px;
+    font-style: italic;
+    background-color: rgb(184, 185, 185);
+}
+
+#enlargeDiv #text{
+    font-size: 40px;
+    text-align: center;
+    padding: 50px 40px;
+    font-family: 'Fredoka One', cursive;
+    /* background-color: wheat; */
+    /* border: 2px solid black; */
+    height: 374px;
+    width: 384px;
+}
+
+#selectStatus{
+    display: inline-block;
+    margin: 15px 60px 5px 45px;
+    font-size: 15px;
+}
+
+#selectStatus .btn{
+    font-weight: bold;
+}
+
+#selectStatus .caret{
+    color: white;
+}
+
+.btn.btn-warning{
+    margin: 15px 45px 5px 60px;
+    font-weight: bold;
+    font-size: 15px;
+    float: right;
+}
+
+#showMoreLess{
+    /* border: 2px solid black; */
+    width: 750px;
+    height: 40px;
+    padding: 0px 25px;
+    font-size: 20px;
+}
+
+.loadMore{
+    float: right;
+}
+
+.showLess{
+    float: left;
+}
+
+.createNewBug{
+    border: 3px solid black;
+    margin: 20px auto;
+    border-radius: 20px;
+    height: 630px;
+    width: 70%;
+    background-color: black;
+    color: white;
+}
+
+.createNewBug h1{
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+.form-group{
+    margin: 20px;
+}
+
+label{
+    font-size: 25px;
+    font-family: 'Righteous', cursive;
+    color: skyblue;
+}
+
+.form-control.myCss{
+    font-size: 18px;
+    font-style: italic;
+}
+
+.leftButton{
+    float: left;
+    background-color: rgb(0, 132, 255);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 6px 30px;
+    margin: 20px;
+    font-size: 20px;
+}
+
+.leftButton:hover{
+    background-color: blue;
+}
+
+.rightButton{
+    float: right;
+    border: 2px solid red;
+    color: red;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px 10px;
+    margin: 20px;
+    font-size: 20px;
+}
+
+.rightButton:hover{
+    background-color: red;
+    color: white;
+}
