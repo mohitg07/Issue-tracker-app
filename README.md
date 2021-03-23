@@ -1,5 +1,5 @@
 # Issue-tracker-app
-This is an issue tracker website where one can keep track of bugs coming during organisational works
+This is an issue tracker website where one can keep track of bugs coming during organisational works.     
 Here is the link to my website : https://mohitg07.github.io/Issue-tracker-app/
 
 # Features
